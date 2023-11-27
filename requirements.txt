@@ -1,2 +1,18 @@
 datetime
 pathlib
+transformers
+transformers[sentencepiece]
+datasets
+sacrebleu
+rouge_score
+py7zr
+pandas
+nltk
+tqdm
+PYAML
+matplotlib
+torch
+python-box==6.0.2
+ensure
+
+-e .

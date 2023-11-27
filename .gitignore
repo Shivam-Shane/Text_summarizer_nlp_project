@@ -1,3 +1,6 @@
-nlp_environment
+textsummarizer
+artifacts
+NLP_Text_summarizar_project.egg-info
 LOGS
 __pycache__
+.zip

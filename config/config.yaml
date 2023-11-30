@@ -2,6 +2,12 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_data_dir: artifacts/data_ingestion
-  source_url: https://github.com/Shivam-Shane/Learnerhub/raw/master/data.zip
-  local_data_dir: artifacts/data_ingestion/data.zip
+  source_url: https://github.com/Shivam-Shane/Learnerhub/raw/master/Newsdataset.zip
+  local_data_dir: artifacts/data_ingestion/Newsdataset.zip
   unzip_data_dir: artifacts/data_ingestion
+
+
+data_validation:
+  root_valdata_dir: artifacts/data_validation
+  Status_file: artifacts/data_validation/status.yaml
+  All_required_files: ["train", "test", "validation"]

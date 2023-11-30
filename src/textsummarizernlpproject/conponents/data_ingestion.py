@@ -15,15 +15,16 @@ class DataIngetsion:
         """
         source url, download location
         Returns None
-        """       
+        """  
+        logging.info("Dataset download started")    
         if not os.path.exists(self.config.local_data_dir):
             filename,headers=request.urlretrieve(
                 url=self.config.source_url,
                 filename=self.config.local_data_dir
             )    
-            logging.info(f"{filename} downloading! with following info:\n{headers}")
+            logging.info(f"Downloading! dataset from {self.config.source_url} at path {self.config.local_data_dir }with following info:\n{headers}")
         else:
-            logging.info(f"file already downloaded at path {self.config.local_data_dir } with size :{get_size(Path(self.config.local_data_dir))}")
+            logging.info(f"file already downloaded at path {self.config.local_data_dir} with size :{get_size(Path(self.config.local_data_dir))}")
 
 
     def extract_data(self):
@@ -33,8 +34,10 @@ class DataIngetsion:
         Returns None
         """
         zip_file_path = self.config.local_data_dir
+        logging.info(f"extracting data {zip_file_path} ")
         unzip_file_path =self.config.unzip_data_dir
         os.makedirs(unzip_file_path,exist_ok=True)
         with zipfile.ZipFile(zip_file_path,'r') as zip_file:
             zip_file.extractall(unzip_file_path)
+            logging.info(f"File extracted and saved successfully at {unzip_file_path}")
                              

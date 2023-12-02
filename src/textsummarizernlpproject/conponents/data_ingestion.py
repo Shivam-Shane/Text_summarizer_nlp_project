@@ -7,7 +7,7 @@ from src.textsummarizernlpproject.entity import DataIngestionConfig
 from logger import logging
 
 
-class DataIngetsion:
+class DataIngestion:
     def __init__(self,config: DataIngestionConfig):
         self.config = config
 
@@ -26,18 +26,23 @@ class DataIngetsion:
         else:
             logging.info(f"file already downloaded at path {self.config.local_data_dir} with size :{get_size(Path(self.config.local_data_dir))}")
 
-
     def extract_data(self):
-        """
-        zip_file_path
-        unzip_file_path Extract the file into dir
-        Returns None
-        """
-        zip_file_path = self.config.local_data_dir
-        logging.info(f"extracting data {zip_file_path} ")
-        unzip_file_path =self.config.unzip_data_dir
-        os.makedirs(unzip_file_path,exist_ok=True)
-        with zipfile.ZipFile(zip_file_path,'r') as zip_file:
-            zip_file.extractall(unzip_file_path)
+            """
+            zip_file_path
+            unzip_file_path Extract the file into dir
+            Returns None
+            """
+            zip_file_path = self.config.local_data_dir
+            logging.info(f"Extracting data from {zip_file_path}")
+            unzip_file_path = self.config.unzip_data_dir
+
+            # Check if the target directory is not empty
+            if os.listdir(unzip_file_path):
+                logging.info(f"Data already extracted at {unzip_file_path}")
+                return  # No need to extract again if the directory is not empty
+
+            with zipfile.ZipFile(zip_file_path, 'r') as zip_file:
+                zip_file.extractall(unzip_file_path)
+            
             logging.info(f"File extracted and saved successfully at {unzip_file_path}")
-                             
+                                

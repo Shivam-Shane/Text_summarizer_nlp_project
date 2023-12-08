@@ -6,7 +6,6 @@ from src.textsummarizernlpproject.utils.common import get_size
 from src.textsummarizernlpproject.entity import DataIngestionConfig
 from logger import logging
 
-
 class DataIngestion:
     def __init__(self,config: DataIngestionConfig):
         self.config = config
@@ -37,9 +36,9 @@ class DataIngestion:
             unzip_file_path = self.config.unzip_data_dir
 
             # Check if the target directory is not empty
-            if os.listdir(unzip_file_path):
-                logging.info(f"Data already extracted at {unzip_file_path}")
-                return  # No need to extract again if the directory is not empty
+            # if os.listdir(unzip_file_path):
+            #     logging.info(f"Data already extracted at {unzip_file_path}")
+            #     return  # No need to extract again if the directory is not empty
 
             with zipfile.ZipFile(zip_file_path, 'r') as zip_file:
                 zip_file.extractall(unzip_file_path)

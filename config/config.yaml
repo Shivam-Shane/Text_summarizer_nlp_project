@@ -11,3 +11,8 @@ data_validation:
   root_valdata_dir: artifacts/data_validation
   Status_file: artifacts/data_validation/status.yaml
   All_required_files: ["train", "test", "validation"]
+
+data_transformation:
+  root_tradata_dir: artifacts/data_transformation
+  data_path:     artifacts/data_ingestion/Newsdataset
+  tokenizer_name: google/pegasus-cnn_dailymail

@@ -12,5 +12,11 @@ class DataIngestionConfig:
 class DataValidationConfig:
     root_valdata_dir: Path
     Status_file: str
-    All_required_files: list
-  
+    All_required_files: list[str] 
+
+
+@dataclass(frozen=True)
+class DataTransformationConfig:
+    root_tradata_dir: Path
+    data_path:     Path
+    tokenizer_name: Path

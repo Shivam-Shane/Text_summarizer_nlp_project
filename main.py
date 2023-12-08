@@ -1,5 +1,7 @@
 from src.textsummarizernlpproject.pipeline.Stage_1_data_ingestion import DataIngestionTrainingPipeline
 from src.textsummarizernlpproject.pipeline.Stage_2_data_validation import DatavalidationTrainingPipeline
+from src.textsummarizernlpproject.pipeline.Stage_3_data_transformation import DataTransformationPipeline
+
 from logger import logging
 import time
 
@@ -18,6 +20,14 @@ try:
     data_validation.main()
     logging.info(f"Stage {STAGE_NAME} is completed successfully")
     ## stage 2 end of pipeline 
+    STAGE_NAME="Data Transformation"
+    logging.info(f"Starting {STAGE_NAME} pipeline")
+    data_transformation=DataTransformationPipeline()
+    data_transformation.main()
+    logging.info(f"Stage {STAGE_NAME} is completed successfully")
+    ## stage 3 end of pipeline 
+
+
 except Exception as e:
         logging.exception(e)
         raise e    

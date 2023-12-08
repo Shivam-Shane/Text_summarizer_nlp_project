@@ -7,6 +7,10 @@ class DataValidation:
         self.config = config
 
     def validatedata(self)->bool:
+        """Validate: data
+        Args: files[List] to be validated, file where to wrtie validation result
+        return True if data is valid, False otherwise in file.
+        """
         try:
             logging.info(f"Starting data validation")
             validation_status = None
@@ -22,7 +26,7 @@ class DataValidation:
                   with open(self.config.Status_file,"w") as f:
                        f.write(f"validation_status: {validation_status}")   
             logging.info(f"Stored data validation result {validation_status}")
-            return validation_status
+            return bool(validation_status)
         except Exception as e: 
          raise e   
         

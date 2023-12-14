@@ -24,7 +24,7 @@ def read_yaml(path_to_yaml)-> ConfigBox:
     except Exception as e: 
         raise e   
                          
-def create_directories(path_to_directory: list, verbose=True):
+def create_directories(path_to_directory: list[str], verbose=True):
     """Create directories if they don't exist.
 
     Args:
@@ -32,10 +32,13 @@ def create_directories(path_to_directory: list, verbose=True):
         verbose (bool, optional): Whether to log the creation of directories. Defaults to True.
     """
     for path in path_to_directory:
-        os.makedirs(path, exist_ok=True)
-        if verbose:
-            action = "Created" if not os.path.exists(path) else "Already exists"
-            logging.info(f"{action} directory at: {path}")
+        if not os.path.isdir(path):
+            os.makedirs(path, exist_ok=True)
+            if verbose:
+                action = "Created" if not os.path.exists(path) else "Already exists"
+                logging.info(f"{action} directory at: {path}")
+        elif verbose:
+            logging.info(f"Directory already exists at: {path}")
             
 def get_size(path: Path) -> str:
     """Get the size of a file.

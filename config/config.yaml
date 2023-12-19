@@ -1,18 +1,16 @@
 artifacts_root: artifacts
 
-execution_flow:
+execution_flow: # set true if needed to execute the flow, else false
   data_ingestion_flow: True
   data_validation_flow: True
   data_transformation_flow: True
   model_trainer_flow: True
-
 
 data_ingestion:
   root_data_dir: artifacts/data_ingestion
   source_url: https://github.com/Shivam-Shane/Learnerhub/raw/master/Newsdataset.zip
   local_data_dir: artifacts/data_ingestion/Newsdataset.zip
   unzip_data_dir: artifacts/data_ingestion
-
 
 data_validation:
   root_valdata_dir: artifacts/data_validation

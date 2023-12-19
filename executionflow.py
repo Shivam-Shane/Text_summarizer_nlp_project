@@ -24,5 +24,4 @@ class Executionflow():
                                 data_transformation_flow=config.model_trainer_flow,
                                 model_trainer_flow=config.model_trainer_flow
         )
-        print(type(execution_flow_config))
         return execution_flow_config

@@ -13,38 +13,42 @@ try:
     executionflow = Executionflow()
     executionflow_data=executionflow.get_data_for_executionflow()
     
-
+    STAGE_NAME="Data Ingestion"
     if executionflow_data.data_ingestion_flow==True:
-        STAGE_NAME="Data Ingestion"
         logging.info(f"Starting {STAGE_NAME} pipeline")
         data_ingetsion=DataIngestionTrainingPipeline()
         data_ingetsion.main()
         logging.info(f"Stage {STAGE_NAME} is completed successfully")
-        # stage 1 end of pipeline 
-
-    if executionflow_data.data_transformation_flow==True:
-        STAGE_NAME="Data Validation"
+    else:
+         logging.info(f"Stage {STAGE_NAME} is skipped.")
+    
+    STAGE_NAME="Data Validation"
+    if executionflow_data.data_validation_flow==True:
         logging.info(f"Starting {STAGE_NAME} pipeline")
         data_validation=DatavalidationTrainingPipeline()
         data_validation.main()
-        logging.info(f"Stage {STAGE_NAME} is completed successfully")
-        ## stage 2 end of pipeline 
-
-    if executionflow_data.data_validation_flow==True:
-        STAGE_NAME="Data Transformation"
+        logging.info(f"Stage {STAGE_NAME} is completed successfully") 
+    else:
+         logging.info(f"Stage {STAGE_NAME} is skipped.")
+    
+    STAGE_NAME="Data Transformation"
+    if executionflow_data.data_transformation_flow==True:
         logging.info(f"Starting {STAGE_NAME} pipeline")
         data_transformation=DataTransformationPipeline()
         data_transformation.main()
         logging.info(f"Stage {STAGE_NAME} is completed successfully")      
-        # stage 3 end of pipeline 
-    
+    else:
+         logging.info(f"Stage {STAGE_NAME} is skipped.")   
+
+    STAGE_NAME="Model Trainer"
     if executionflow_data.model_trainer_flow==True:
-        STAGE_NAME="Model Trainer"
         logging.info(f"Starting {STAGE_NAME} pipeline")
         model_trainer=ModelTrainerPipeline()
         model_trainer.main()
         logging.info(f"Stage {STAGE_NAME} is completed successfully")
-        ## stage 4 end of pipeline 
+    else:
+         logging.info(f"Stage {STAGE_NAME} is skipped.")
+
     Endtime = time.time()
     logging.info(f"Pipeline execution time: {Endtime-starttime}")
 

@@ -1,9 +1,9 @@
 artifacts_root: artifacts
 
 execution_flow: # set true if needed to execute the flow, else false
-  data_ingestion_flow: True
-  data_validation_flow: True
-  data_transformation_flow: True
+  data_ingestion_flow: False
+  data_validation_flow: False
+  data_transformation_flow: False
   model_trainer_flow: True
 
 data_ingestion:

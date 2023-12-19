@@ -14,5 +14,6 @@ matplotlib
 torch
 python-box==6.0.2
 ensure
+tqdm
 
 -e .

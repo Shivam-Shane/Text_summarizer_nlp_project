@@ -5,6 +5,7 @@ from pathlib import Path
 from src.textsummarizernlpproject.utils.common import get_size
 from src.textsummarizernlpproject.entity import DataIngestionConfig
 from logger import logging
+from tqdm import tqdm
 
 class DataIngestion:
     def __init__(self,config: DataIngestionConfig):
@@ -26,22 +27,20 @@ class DataIngestion:
             logging.info(f"file already downloaded at path {self.config.local_data_dir} with size :{get_size(Path(self.config.local_data_dir))}")
 
     def extract_data(self):
-            """
-            zip_file_path
-            unzip_file_path Extract the file into dir
-            Returns None
-            """
-            zip_file_path = self.config.local_data_dir
-            logging.info(f"Extracting data from {zip_file_path}")
-            unzip_file_path = self.config.unzip_data_dir
-
-            # Check if the target directory is not empty
-            # if os.listdir(unzip_file_path):
-            #     logging.info(f"Data already extracted at {unzip_file_path}")
-            #     return  # No need to extract again if the directory is not empty
-
+        """
+        zip_file_path
+        unzip_file_path Extract the file into dir
+        Returns None
+        """
+        zip_file_path = self.config.local_data_dir
+        logging.info(f"Extracting data from {zip_file_path}")
+        unzip_file_path = self.config.unzip_data_dir
+        
+        with tqdm(total=len(zipfile.ZipFile(zip_file_path).infolist()), unit='file', desc='Extracting') as pbar:
             with zipfile.ZipFile(zip_file_path, 'r') as zip_file:
-                zip_file.extractall(unzip_file_path)
-            
-            logging.info(f"File extracted and saved successfully at {unzip_file_path}")
+                for file_info in zip_file.infolist():
+                    zip_file.extract(file_info, unzip_file_path)
+                    pbar.update(1)
+
+        logging.info(f"File extracted and saved successfully at {unzip_file_path}")
                                 

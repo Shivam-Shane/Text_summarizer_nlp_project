@@ -1,5 +1,12 @@
 artifacts_root: artifacts
 
+execution_flow:
+  data_ingestion_flow: True
+  data_validation_flow: True
+  data_transformation_flow: True
+  model_trainer_flow: True
+
+
 data_ingestion:
   root_data_dir: artifacts/data_ingestion
   source_url: https://github.com/Shivam-Shane/Learnerhub/raw/master/Newsdataset.zip
@@ -16,3 +23,8 @@ data_transformation:
   root_tradata_dir: artifacts/data_transformation
   data_path:     artifacts/data_ingestion/Newsdataset
   tokenizer_name: google/pegasus-cnn_dailymail
+
+model_trainer:
+  root_model_dir: artifacts/model_trainer
+  data_path:     artifacts/data_transformation/Newsdataset
+  model_name: google/pegasus-cnn_dailymail

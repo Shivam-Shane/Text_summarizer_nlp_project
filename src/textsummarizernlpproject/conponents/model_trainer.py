@@ -18,9 +18,7 @@ class ModelTrainer:
         seq2seq_data_collator=DataCollatorForSeq2Seq(tokenizer,model)
 
         dataset_newsdata=load_from_disk(str(self.config.data_path))
-
-        print(dataset_newsdata)
-        
+                
         trainer_args=TrainingArguments(
                 output_dir=str(self.config.root_model_dir),
                 num_train_epochs=self.config.num_train_epoch,

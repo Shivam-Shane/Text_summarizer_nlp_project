@@ -7,9 +7,11 @@ class DataValidation:
         self.config = config
 
     def validatedata(self)->bool:
-        """Validate: data
-        Args: files[List] to be validated, file where to wrtie validation result
-        return True if data is valid, False otherwise in file.
+        """Validate data if they are good for models
+        Args: 
+            files[List] to be validated, file where to wrtie validation result
+        return:
+            True if data is valid, False otherwise in file as key:value.
         """
         try:
             logging.info(f"Starting data validation")

@@ -2,9 +2,7 @@ from dataclasses import dataclass
 from os import path
 from pathlib import Path
 
-
-
-@dataclass(frozen=True)
+@dataclass(frozen=True)  # you cannot modify its attributes, needed for each class separately...
 class ExecutionflowConfig:
     data_ingestion_flow: bool
     data_validation_flow: bool
@@ -25,7 +23,6 @@ class DataValidationConfig:
     root_valdata_dir: Path
     Status_file: str
     All_required_files: list[str] 
-
 
 @dataclass(frozen=True)
 class DataTransformationConfig:

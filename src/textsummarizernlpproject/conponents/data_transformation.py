@@ -10,10 +10,9 @@ class DataTransformations:
         self.tokenizer = AutoTokenizer.from_pretrained(self.config.tokenizer_name)
 
     def convert_examples_to_features(self,example_batch):
-        """Convert a list of examples
+        """Converting a list of examples/Datasets into features
         Args:
-            tokenizer_name
-            dataset_name
+            dataset
         Returns: input_id, attention_mask, labels
         """
         input_encoding = self.tokenizer(example_batch['article'],max_length=1024,truncation=True)
@@ -26,7 +25,6 @@ class DataTransformations:
             'labels':target_encoding['input_ids'],
         } 
            
-    
     def convert(self):
         dataset_newsdata=load_dataset(str(self.config.data_path))
         dataset_newsdata_pt=dataset_newsdata.map(self.convert_examples_to_features,batched=True)

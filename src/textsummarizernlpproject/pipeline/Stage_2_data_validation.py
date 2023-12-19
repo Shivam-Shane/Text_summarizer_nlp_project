@@ -6,6 +6,7 @@ class DatavalidationTrainingPipeline:
     def __init__(self):
         pass
     def main(self):
+        logging.info(f"Inside {self.__class__.__name__}.{self.__init__.__name__}")
         config=ConfigurationManager()
         datavalidationconfig=config.get_data_validation_config()
         datavalidation=DataValidation(config=datavalidationconfig)

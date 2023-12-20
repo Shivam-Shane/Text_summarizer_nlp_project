@@ -22,7 +22,7 @@ class ModelTrainer:
         returns:
             None
         """
-        logging.info(f"Inside {self.__class__.__name__}.{self.train.__name__}")
+        logging.info(f">>>> Inside {self.__class__.__name__}.{self.train.__name__}")
 
         device="cuda" if torch.cuda.is_available() else "cpu"
         tokenizer=AutoTokenizer.from_pretrained(self.config.model_name)
@@ -50,4 +50,4 @@ class ModelTrainer:
         logging.info(f"Saving the model and tokens")                
         model.save_pretrained(os.path.join(self.config.root_model_dir,"Newsdataset"))
         tokenizer.save_pretrained(os.path.join(self.config.root_model_dir,"Tokenizer"))
-        logging.info(f"End of {self.__class__.__name__}.{self.train.__name__}")        
+        logging.info(f">>>> End of {self.__class__.__name__}.{self.train.__name__}")        

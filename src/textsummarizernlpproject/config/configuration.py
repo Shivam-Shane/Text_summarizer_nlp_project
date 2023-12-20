@@ -12,7 +12,7 @@ class ConfigurationManager:
         create_directories([self.config[0].artifacts_root]) 
 
     def get_data_ingestion_config(self)-> DataIngestionConfig:
-        logging.info(f"Inside {self.__class__.__name__}.{self.get_data_ingestion_config.__name__}")
+        logging.info(f">>>> Inside {self.__class__.__name__}.{self.get_data_ingestion_config.__name__}")
         config=self.config[0].data_ingestion
 
         create_directories([config.root_data_dir])#function to create directory
@@ -23,11 +23,11 @@ class ConfigurationManager:
             local_data_dir=config.local_data_dir,
             unzip_data_dir=config.unzip_data_dir
         )
-        logging.info(f"End of {self.get_data_ingestion_config.__name__} function")
+        logging.info(f">>>> End of {self.get_data_ingestion_config.__name__} function")
         return data_ingestion_config
     
     def get_data_validation_config(self)->DataValidationConfig:
-        logging.info(f"Inside {self.__class__.__name__}.{self.get_data_validation_config.__name__}")
+        logging.info(f">>>> Inside {self.__class__.__name__}.{self.get_data_validation_config.__name__}")
         config=self.config[0].data_validation
 
         create_directories([config.root_valdata_dir])#function to create directory
@@ -37,11 +37,11 @@ class ConfigurationManager:
             Status_file=config.Status_file,
             All_required_files=config.All_required_files
         )
-        logging.info(f"End of {self.get_data_validation_config.__name__}")
+        logging.info(f">>>> End of {self.get_data_validation_config.__name__}")
         return data_validation_config
     
     def get_data_transformation_config(self)->DataTransformationConfig:
-        logging.info(f"Inside {self.__class__.__name__}.{self.get_data_transformation_config.__name__}")
+        logging.info(f">>>> Inside {self.__class__.__name__}.{self.get_data_transformation_config.__name__}")
 
         config=self.config[0].data_transformation
 
@@ -52,11 +52,11 @@ class ConfigurationManager:
         data_path   =config.data_path,
         tokenizer_name=config.tokenizer_name
         )
-        logging.info(f"End of {self.get_data_transformation_config.__name__}")
+        logging.info(f">>>> End of {self.get_data_transformation_config.__name__}")
         return data_transformation_config
     
     def get_model_trainer_config(self)->ModelTraninerConfig:
-        logging.info(f"Inside {self.__class__.__name__}.{self.get_model_trainer_config.__name__}")
+        logging.info(f">>>> Inside {self.__class__.__name__}.{self.get_model_trainer_config.__name__}")
 
         config = self.config[0].model_trainer
         parms=self.parms.TrainingArguments

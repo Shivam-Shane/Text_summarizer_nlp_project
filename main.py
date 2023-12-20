@@ -15,39 +15,39 @@ try:
     
     STAGE_NAME="Data Ingestion"
     if executionflow_data.data_ingestion_flow==True:
-        logging.info(f"Starting {STAGE_NAME} pipeline")
+        logging.info(f">>>>>>>>>>>>>>> Starting {STAGE_NAME} pipeline")
         data_ingetsion=DataIngestionTrainingPipeline()
         data_ingetsion.main()
-        logging.info(f"Stage {STAGE_NAME} is completed successfully")
+        logging.info(f"<<<<<<<<<<<<<<< Stage {STAGE_NAME} is completed successfully")
     else:
-         logging.info(f"Stage {STAGE_NAME} is skipped.")
+         logging.info(f"-------------- Stage {STAGE_NAME} is skipped.")
     
     STAGE_NAME="Data Validation"
     if executionflow_data.data_validation_flow==True:
-        logging.info(f"Starting {STAGE_NAME} pipeline")
+        logging.info(f">>>>>>>>>>>>>>> Starting {STAGE_NAME} pipeline")
         data_validation=DatavalidationTrainingPipeline()
         data_validation.main()
-        logging.info(f"Stage {STAGE_NAME} is completed successfully") 
+        logging.info(f"<<<<<<<<<<<<<<< Stage {STAGE_NAME} is completed successfully") 
     else:
-         logging.info(f"Stage {STAGE_NAME} is skipped.")
+         logging.info(f"-------------- Stage {STAGE_NAME} is skipped.")
     
     STAGE_NAME="Data Transformation"
     if executionflow_data.data_transformation_flow==True:
-        logging.info(f"Starting {STAGE_NAME} pipeline")
+        logging.info(f">>>>>>>>>>>>>>> Starting {STAGE_NAME} pipeline")
         data_transformation=DataTransformationPipeline()
         data_transformation.main()
-        logging.info(f"Stage {STAGE_NAME} is completed successfully")      
+        logging.info(f"<<<<<<<<<<<<<<< Stage {STAGE_NAME} is completed successfully")      
     else:
-         logging.info(f"Stage {STAGE_NAME} is skipped.")   
+         logging.info(f"-------------- Stage {STAGE_NAME} is skipped.")   
 
     STAGE_NAME="Model Trainer"
     if executionflow_data.model_trainer_flow==True:
-        logging.info(f"Starting {STAGE_NAME} pipeline")
+        logging.info(f">>>>>>>>>>>>>>> Starting {STAGE_NAME} pipeline")
         model_trainer=ModelTrainerPipeline()
         model_trainer.main()
-        logging.info(f"Stage {STAGE_NAME} is completed successfully")
+        logging.info(f"<<<<<<<<<<<<<<< Stage {STAGE_NAME} is completed successfully")
     else:
-         logging.info(f"Stage {STAGE_NAME} is skipped.")
+         logging.info(f"-------------- Stage {STAGE_NAME} is skipped.")
 
     Endtime = time.time()
     logging.info(f"Pipeline execution time: {Endtime-starttime}")

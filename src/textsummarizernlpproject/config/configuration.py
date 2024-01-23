@@ -1,6 +1,6 @@
 from src.textsummarizernlpproject.constants import *
 from src.textsummarizernlpproject.utils.common import read_yaml, create_directories
-from src.textsummarizernlpproject.entity import DataIngestionConfig,DataValidationConfig,DataTransformationConfig,ModelTraninerConfig
+from src.textsummarizernlpproject.entity import DataIngestionConfig,DataValidationConfig,DataTransformationConfig,ModelTraninerConfig,ModelEvaluationConfig
 from logger import logging
 
 class ConfigurationManager:
@@ -78,4 +78,23 @@ class ConfigurationManager:
                 save_steps=parms.save_steps,
                 gradient_accumulation_steps=parms.gradient_accumulation_steps
         )
+        logging.info(f">>>> End of {self.get_model_trainer_config.__name__} function")
         return model_trainer_config
+    
+    def get_model_evaluation_config(self)->ModelEvaluationConfig:
+        logging.info(f">>>> Inside {self.__class__.__name__}.{self.get_model_evaluation_config.__name__}")
+
+        config = self.config[0].model_Evaluation
+        # parms=self.parms.TrainingArguments
+        create_directories([config.root_evaluation_dir])
+
+        model_Evaluation_config = ModelEvaluationConfig(
+                #config.yaml 
+                root_model_dir= config.root_evaluation_dir,
+                data_path  =config.data_path,
+                model_name=config.model_name,
+                tokenizer_path=config.tokenizer_path,
+                metric_file=config.metric_file
+        )
+        logging.info(f">>>> End of {self.get_model_evaluation_config.__name__} function")
+        return model_Evaluation_config

@@ -8,6 +8,7 @@ class ExecutionflowConfig:
     data_validation_flow: bool
     data_transformation_flow: bool
     model_trainer_flow: bool
+    model_evaluation_flow: bool
 
 @dataclass(frozen=True)
 class DataIngestionConfig:
@@ -47,3 +48,11 @@ class ModelTraninerConfig:
     eval_steps:int
     save_steps:float
     gradient_accumulation_steps:int 
+
+@dataclass(frozen=True)
+class ModelEvaluationConfig:
+    root_model_dir: Path
+    data_path:     Path
+    model_name: Path
+    tokenizer_path: Path
+    metric_file: Path

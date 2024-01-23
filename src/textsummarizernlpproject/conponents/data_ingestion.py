@@ -29,10 +29,12 @@ class DataIngestion:
             logging.info(f"file already downloaded at path {self.config.local_data_dir} with size :{get_size(Path(self.config.local_data_dir))}")
 
     def extract_data(self):
-        """ Extract data for model building from the given path
+        """Extract data for model building from the given path
+
         Args:
-            zip_file_path,
-            unzip_file_path
+            zip_file_path (str): path to the zip file containing the dataset
+            unzip_file_path (str): path to the directory where the dataset should be extracted
+
         Returns:
             None
         """

@@ -9,9 +9,18 @@ from pathlib import Path
 
 @ensure_annotations
 def read_yaml(path_to_yaml)-> ConfigBox: #reading yaml
-    """read yaml file 
-    Args: path_to_yaml file to read
-    returns: values of yaml file in form of ConfigBox
+    """
+    Read a YAML file and return its contents as a ConfigBox.
+
+    Args:
+        path_to_yaml (str): The path to the YAML file.
+
+    Returns:
+        ConfigBox: The contents of the YAML file as a ConfigBox.
+
+    Raises:
+        ValueError: If the YAML file is empty.
+        Exception: If an error occurs while reading the YAML file.
     """
     logging.info(f"Starting reading yaml file {path_to_yaml}")
     try:

@@ -1,10 +1,11 @@
 artifacts_root: artifacts
 
 execution_flow: # set true if needed to execute the flow, else false
-  data_ingestion_flow: True
-  data_validation_flow: True
-  data_transformation_flow: True
-  model_trainer_flow: True
+  data_ingestion_flow: False
+  data_validation_flow: False
+  data_transformation_flow: False
+  model_trainer_flow: False
+  model_evaluation_flow: True
 
 data_ingestion:
   root_data_dir: artifacts/data_ingestion
@@ -16,7 +17,7 @@ data_validation:
   root_valdata_dir: artifacts/data_validation
   Status_file: artifacts/data_validation/status.yaml
   All_required_files: ["train", "test", "validation"]
-
+  
 data_transformation:
   root_tradata_dir: artifacts/data_transformation
   data_path:     artifacts/data_ingestion/Newsdataset
@@ -26,3 +27,10 @@ model_trainer:
   root_model_dir: artifacts/model_trainer
   data_path:     artifacts/data_transformation/Newsdataset
   model_name: google/pegasus-cnn_dailymail
+
+model_evaluation:
+  root_evaluation_dir: artifacts/model_evaluation
+  data_path:     artifacts/data_transformation/Newsdataset
+  model_name: artifacts/model_trainer/Newsdataset
+  tokenizer_path: artifacts/model_trainer/Tokenizer
+  metric_file: artifacts/model_trainer/metric.csv

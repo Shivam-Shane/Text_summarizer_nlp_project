@@ -2,6 +2,9 @@ from src.textsummarizernlpproject.pipeline.Stage_1_data_ingestion import DataIng
 from src.textsummarizernlpproject.pipeline.Stage_2_data_validation import DatavalidationTrainingPipeline
 from src.textsummarizernlpproject.pipeline.Stage_3_data_transformation import DataTransformationPipeline
 from src.textsummarizernlpproject.pipeline.Stage_4_model_trainer import ModelTrainerPipeline
+from src.textsummarizernlpproject.pipeline.Stage_4_model_trainer import ModelTrainerPipeline
+from src.textsummarizernlpproject.pipeline.Stage_5_model_evaluation import DataEvaluationPipeline
+
 from src.textsummarizernlpproject.constants import *
 from logger import logging
 import time
@@ -48,6 +51,17 @@ try:
         logging.info(f"<<<<<<<<<<<<<<< Stage {STAGE_NAME} is completed successfully")
     else:
          logging.info(f"-------------- Stage {STAGE_NAME} is skipped.")
+
+    STAGE_NAME="Model Evaluation"
+    if executionflow_data.model_evaluation_flow==True:
+        logging.info(f">>>>>>>>>>>>>>> Starting {STAGE_NAME} pipeline")
+        model_evaluation=DataEvaluationPipeline()
+        model_evaluation.main()
+        logging.info(f"<<<<<<<<<<<<<<< Stage {STAGE_NAME} is completed successfully")
+    else:
+         logging.info(f"-------------- Stage {STAGE_NAME} is skipped.")
+
+
 
     Endtime = time.time()
     logging.info(f"Pipeline execution time: {Endtime-starttime}")

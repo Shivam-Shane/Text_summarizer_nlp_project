@@ -48,6 +48,6 @@ class ModelTrainer:
                         eval_dataset=dataset_newsdata['validation']     # type: ignore
                         )
         logging.info(f"Saving the model and tokens")                
-        model.save_pretrained(os.path.join(self.config.root_model_dir,"NewsdatasetModel"))
+        model.save_pretrained(os.path.join(self.config.root_model_dir,"Newsdatasetmodel"))
         tokenizer.save_pretrained(os.path.join(self.config.root_model_dir,"Tokenizer"))
         logging.info(f">>>> End of {self.__class__.__name__}.{self.train.__name__}")        

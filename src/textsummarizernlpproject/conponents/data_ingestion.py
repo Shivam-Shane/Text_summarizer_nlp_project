@@ -14,7 +14,8 @@ class DataIngestion:
     def download_file(self):
         """Download the dataset from the url specified
         Args:
-            source url, download dir location
+            source url (str): path of the dataset
+            download directory location (Path): path where the dataset will be downloaded
         Returns:
             None
         """  

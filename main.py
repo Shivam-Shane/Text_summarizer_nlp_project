@@ -4,12 +4,10 @@ from src.textsummarizernlpproject.pipeline.Stage_3_data_transformation import Da
 from src.textsummarizernlpproject.pipeline.Stage_4_model_trainer import ModelTrainerPipeline
 from src.textsummarizernlpproject.pipeline.Stage_4_model_trainer import ModelTrainerPipeline
 from src.textsummarizernlpproject.pipeline.Stage_5_model_evaluation import DataEvaluationPipeline
-
 from src.textsummarizernlpproject.constants import *
 from logger import logging
 import time
 from executionflow import Executionflow
-
 
 try:
     starttime = time.time()
@@ -60,8 +58,6 @@ try:
         logging.info(f"<<<<<<<<<<<<<<< Stage {STAGE_NAME} is completed successfully")
     else:
          logging.info(f"-------------- Stage {STAGE_NAME} is skipped.")
-
-
 
     Endtime = time.time()
     logging.info(f"Pipeline execution time: {Endtime-starttime}")

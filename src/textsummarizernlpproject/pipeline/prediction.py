@@ -16,7 +16,7 @@ class PredictPipelineClass:
             logging.info(f">>>> Inside {self.__class__.__name__}.{self.__init__.__name__}")
             logging.info(f"Starting prediction")
             tokenizer=AutoTokenizer.from_pretrained(self.config.tokenizer_path)
-            gen_kwags={'length_penalty':0.8,'num_beams':10,"max_length":200}
+            gen_kwags={'length_penalty':0.8,'num_beams':10,"max_length":500}
             pipe=pipeline("summarization",model=str(self.config.model_name),tokenizer=tokenizer)
             output=pipe(text,**gen_kwags)[0]["summary_text"].replace("<n>", " ") #type: ignore
             logging.info("Returing result")

@@ -1,0 +1,15 @@
+# Ignore the .git directory
+.github/
+
+# Ignore the .vscode directory
+.vscode/
+# Ignore the .conda file
+.conda
+
+# Ignore Artifacts folder and its subdirectories
+artifacts/
+LOGS/
+.gitignore
+__pycache__/
+LICENSE
+template.py

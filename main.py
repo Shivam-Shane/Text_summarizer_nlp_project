@@ -8,6 +8,8 @@ from src.textsummarizernlpproject.constants import *
 from logger import logging
 import time
 from executionflow import Executionflow
+import warnings
+warnings.filterwarnings("ignore")
 
 try:
     starttime = time.time()

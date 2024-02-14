@@ -1,5 +1,4 @@
 import os
-from tabnanny import verbose
 from src.textsummarizernlpproject.entity import DataTransformationConfig
 from logger import logging
 from transformers import AutoTokenizer

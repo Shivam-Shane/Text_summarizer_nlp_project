@@ -13,3 +13,4 @@ LOGS/
 __pycache__/
 LICENSE
 template.py
+*.egg-info/

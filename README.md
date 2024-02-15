@@ -34,8 +34,9 @@ Hugging Face Transformers provides thousands of pretrained models to perform tas
 # Installation Instructions
 1. Create a anaconda environment. visit https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands
 2. Clone the repo.
-3. git clone https://github.com/Shivam-Shane/Project.git
+3. git clone https://github.com/Shivam-Shane/Text_summarizer_nlp_project
 4. run Command pip install -r requirements.txt
-5. run app.py
-6. open https://localhost:1001 in browser.
-7. Input the desired text and see the result.
+5. run main.py
+6. run app.py
+7. open https://localhost:1001 in browser.
+8. Input the desired text and see the result.

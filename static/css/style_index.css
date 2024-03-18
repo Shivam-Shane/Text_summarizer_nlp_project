@@ -52,15 +52,21 @@ nav {
 .items a:hover {
   color: rgb(1, 6, 8);
 }
-input[type="text"] {
-  box-sizing: border-box;
-  padding: 10px; 
-  transition: width 0.3s, height 1.3s; 
-  max-width: 500px; 
-  width: fit-content; 
-  min-width: 200px; 
-  min-height: 0px;
+#textInput {
+  width: 40%;
+  min-height: 50px;
+  max-height: 200px;
+  padding: 10px; /* Add padding */
+  border: 2px solid #ccc; /* Add border */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  resize: vertical; /* Allow vertical resizing only */
+  overflow-y: auto; /* Add a vertical scrollbar when necessary */
+  font-family: Arial, sans-serif; /* Optional: Specify font family */
+  font-size: 14px; /* Optional: Specify font size */
+  line-height: 1.5; /* Optional: Specify line height */
 }
+
+
 button {
   padding: 10px 20px; 
   background-color: #4CAF50;

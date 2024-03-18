@@ -22,9 +22,9 @@
       <h2 class="hero-heading">Text Summarization</h2>
       <p class="hero-sub-heading">Let me summarize the text/quote or anything you got for you.</p>
       <form id="summarizeForm" method="POST" action="/">
-        <label for="textInput">Text Here:</label>
-          <input type="text" id="textInput" name="input_data" placeholder="Type to summarize" required>
-          <button id="submitButton" type="submit">Hurray</button>
+        
+        <textarea id="textInput" name="input_data" placeholder="Type to summarize" required></textarea>
+        <button id="submitButton" type="submit">Hurray</button>
       </form>
       {% if processed_data %}
       <h2>Here is your summary :</h2>
@@ -53,17 +53,7 @@
 		  </div>
 		</div>
 	  </footer>
-  <script>
-    // JavaScript for adjusting input box size based on content in input box
-    const inputField = document.querySelector('input[type="text"]');
-    inputField.addEventListener('input', function () {
-      // width and height based on the content
-      this.style.width = 'auto';
-      this.style.height = 'auto';
-      this.style.width = (this.scrollWidth + 2) + 'px';
-      this.style.height = (this.scrollHeight + 2) + 'px';
-    });
-  </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 </body>
 </html>

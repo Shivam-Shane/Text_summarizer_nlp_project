@@ -1,7 +1,8 @@
 datetime
 pathlib
-transformers[AutoTokenizer,AutoModelForSeq2SeqLM,TrainingArguments,Trainer,DataCollatorForSeq2Seq]
-transformers[sentencepiece]
+torch
+transformers
+transformers[torch]
 datasets
 rouge_score
 pandas

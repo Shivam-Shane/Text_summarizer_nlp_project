@@ -74,7 +74,7 @@ class Model_Evaluation():
              model=AutoModelForSeq2SeqLM.from_pretrained(self.config.model_name).to(device)
              dataset_newsdata=load_from_disk(str(self.config.data_path))                
              rouge_names=["rouge1", "rouge2", "rougeL","rougeLsum"]
-             rouge_metric=load_metric('rouge')
+             rouge_metric=load_metric('rouge',trust_remote_code=True)
              logging.info("Running calulate metric")
 
              score=self.calculate_metric_on_test(           

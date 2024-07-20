@@ -2,7 +2,7 @@ version: '1.1'
 services:
   text_summarization:
     build:
-      context: . ##specifing that whole data of cwd will use ofr image building
-      dockerfile: dockerfile # from where build wors
+      context: . ##specifing that whole data of cwd will use for image building
+      dockerfile: Dockerfile # from where build wors
     ports:
-      - "1001:1001" #maps the port container:host
+      - "8082:8082" #maps the port container:host

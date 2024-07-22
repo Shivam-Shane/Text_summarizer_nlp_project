@@ -29,4 +29,4 @@ def process_data(summarization_data):
     return value
         
 if __name__ == "__main__":
-    application.run(host="0.0.0.0", port=1001,debug=False)
+    application.run(host="0.0.0.0", port=8082,debug=False)

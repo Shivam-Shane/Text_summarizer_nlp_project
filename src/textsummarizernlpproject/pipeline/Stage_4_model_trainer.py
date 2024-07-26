@@ -10,5 +10,5 @@ class ModelTrainerPipeline:
         config=ConfigurationManager() ## To access the configuration methods
         modelconfig=config.get_model_trainer_config()## To access the data_ingestion config
         model_trainer=ModelTrainer(config=modelconfig)
-        model_trainer.train()
+        model_trainer.train_model()
         logging.info(f">>>> Model trainer END")

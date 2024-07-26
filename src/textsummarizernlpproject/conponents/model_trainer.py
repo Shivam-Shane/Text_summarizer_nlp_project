@@ -9,7 +9,7 @@ class ModelTrainer:
     def __init__(self,config:ModelTraninerConfig):
         self.config = config
 
-    def train(self):
+    def train_model(self):
         """ Train the model
         Args:
             Model Name: The name of the model
@@ -19,7 +19,7 @@ class ModelTrainer:
         returns:
             None
         """
-        logging.info(f">>>> Inside {self.__class__.__name__}.{self.train.__name__}")
+        logging.info(f">>>> Inside {self.__class__.__name__}.{self.train_model.__name__}")
 
         device="cuda" if torch.cuda.is_available() else "cpu"
         tokenizer=AutoTokenizer.from_pretrained(self.config.model_name)
@@ -44,7 +44,10 @@ class ModelTrainer:
                         train_dataset=dataset_newsdata['train'],        # type: ignore
                         eval_dataset=dataset_newsdata['validation']     # type: ignore
                         )
+        logging.info("Starting training")
+        trainer.train()
+        logging.info("Training completed")
         logging.info(f"Saving the model and tokens")                
         model.save_pretrained(os.path.join(self.config.root_model_dir,"Newsdatasetmodel"))
         tokenizer.save_pretrained(os.path.join(self.config.root_model_dir,"Tokenizer"))
-        logging.info(f">>>> End of {self.__class__.__name__}.{self.train.__name__}")        
+        logging.info(f">>>> End of {self.__class__.__name__}.{self.train_model.__name__}")        

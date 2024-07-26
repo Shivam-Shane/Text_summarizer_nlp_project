@@ -1,10 +1,10 @@
 TrainingArguments:
-  num_train_epoch: 1
+  num_train_epoch: 60
   warmup_steps: 500
   pre_device_train_batch_size: 1
-  weight_decay: 0.01
+  weight_decay: 0.02
   logging_steps: 10
   evaluation_strategy: steps
-  eval_steps: 500
-  save_steps: 10000
+  eval_steps: 5000
+  save_steps: 100
   gradient_accumulation_steps: 16

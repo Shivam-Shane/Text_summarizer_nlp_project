@@ -2,9 +2,7 @@
 
 <p align ="center"><img src="bot.gif" width=50%></p>
 
-<h1 align="center">
-     Text Summarization Web Application 📖
-</h1>
+
 
 # Brief explanation of the application
 ## Information 📱
@@ -115,3 +113,22 @@ Hugging Face Transformers provides thousands of pretrained models to perform tas
     AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
 
     ECR_REPOSITORY_NAME = text_summarizera/or the name you define.
+## Contribution
+Feel free to fork this project, submit pull requests, or report issues. Contributions to enhance the functionality and make the system more robust are welcome!
+
+## License
+This project is licensed under the GNU GENERAL PUBLIC LICENSE - see the LICENSE file for details.
+
+## Contact
+
+For questions, suggestions, or support, reach out at 
+- **sk0551460@gmail.com** 
+- **shivam.hireme@gmail.com**.
+
+## Support the Project
+
+Help support continued development and improvements:
+
+- **Follow on LinkedIn**: Stay connected for updates – [LinkedIn Profile](https://www.linkedin.com/in/shivam-hireme/)
+- **Buy Me a Coffee**: Appreciate the project? [Buy Me a Coffee](https://buymeacoffee.com/shivamshane)
+- **Visit my Portfolio**: [Shivam's Portfolio](https://shivam-portfoliio.vercel.app/)
